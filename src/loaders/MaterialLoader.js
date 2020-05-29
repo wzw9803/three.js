@@ -32,7 +32,25 @@ MaterialLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 		loader.setPath( scope.path );
 		loader.load( url, function ( text ) {
 
-			onLoad( scope.parse( JSON.parse( text ) ) );
+			try {
+
+				onLoad( scope.parse( JSON.parse( text ) ) );
+
+			} catch ( e ) {
+
+				if ( onError ) {
+
+					onError( e );
+
+				} else {
+
+					console.error( e );
+
+				}
+
+				scope.manager.itemError( url );
+
+			}
 
 		}, onProgress, onError );
 
@@ -256,6 +274,8 @@ MaterialLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 
 		if ( json.gradientMap !== undefined ) material.gradientMap = getTexture( json.gradientMap );
 
+		if ( json.clearcoatMap !== undefined ) material.clearcoatMap = getTexture( json.clearcoatMap );
+		if ( json.clearcoatRoughnessMap !== undefined ) material.clearcoatRoughnessMap = getTexture( json.clearcoatRoughnessMap );
 		if ( json.clearcoatNormalMap !== undefined ) material.clearcoatNormalMap = getTexture( json.clearcoatNormalMap );
 		if ( json.clearcoatNormalScale !== undefined ) material.clearcoatNormalScale = new Vector2().fromArray( json.clearcoatNormalScale );
 

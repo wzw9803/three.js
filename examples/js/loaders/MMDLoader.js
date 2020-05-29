@@ -1,3 +1,4 @@
+console.warn( "THREE.MMDLoader: As part of the transition to ES6 Modules, the files in 'examples/js' were deprecated in May 2020 (r117) and will be deleted in December 2020 (r124). You can find more information about developing using ES6 Modules in https://threejs.org/docs/index.html#manual/en/introduction/Import-via-modules." );
 /**
  * @author takahiro / https://github.com/takahirox
  *
@@ -13,7 +14,7 @@
  * VPD is a posing data format used in MMD(Miku Miku Dance).
  *
  * MMD official site
- *  - http://www.geocities.jp/higuchuu4/index_e.htm
+ *  - https://sites.google.com/view/evpvp/
  *
  * PMD, VMD format (in Japanese)
  *  - http://blog.goo.ne.jp/torisu_tetosuki/e/209ad341d3ece2b1b4df24abf619d6e4
@@ -1284,7 +1285,7 @@ THREE.MMDLoader = ( function () {
 
 				try {
 
-					index = parseInt( filePath.match( 'toon([0-9]{2})\.bmp$' )[ 1 ] );
+					index = parseInt( filePath.match( /toon([0-9]{2})\.bmp$/ )[ 1 ] );
 
 				} catch ( e ) {
 
