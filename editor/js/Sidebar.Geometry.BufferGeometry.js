@@ -1,10 +1,6 @@
-/**
- * @author mrdoob / http://mrdoob.com/
- */
-
 import { UIRow, UIText, UISpan, UIBreak } from './libs/ui.js';
 
-var SidebarGeometryBufferGeometry = function ( editor ) {
+function SidebarGeometryBufferGeometry( editor ) {
 
 	var strings = editor.strings;
 
@@ -27,7 +23,7 @@ var SidebarGeometryBufferGeometry = function ( editor ) {
 			var text = new UIText( strings.getKey( 'sidebar/geometry/buffer_geometry/attributes' ) ).setWidth( '90px' );
 			container.add( text );
 
-			var container2 = new UISpan().setDisplay( 'inline-block' ).setWidth( '160px' );
+			var container2 = new UISpan().setDisplay( 'inline-block' ).setVerticalAlign( 'middle' ).setWidth( '160px' );
 			container.add( container2 );
 
 			var index = geometry.index;
@@ -65,6 +61,6 @@ var SidebarGeometryBufferGeometry = function ( editor ) {
 
 	return container;
 
-};
+}
 
 export { SidebarGeometryBufferGeometry };
